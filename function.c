@@ -150,13 +150,15 @@ void loaddata(){
 
 void testDataBase(){
     int i;
+    printf("+++++++++++++++++++++++++++++++++++++++++BOOK LIST+++++++++++++++++++++++++++++++++++++++\n");
+    printf("BOOK ID\tNAME\t\t\tAUTHOR\tPRICE\tRACK NO\tCOUNT\tISSUED ON\tDUE DATE\n");
     for(i=0;i<datasize;i++){
         struct Book book = *(data_dynamic + i);
-        printf("%d %s %s %f %d %d %d/%d/%d %d/%d/%d\n",book.id,book.name,book.author,book.price,
+        printf("%d\t%s\t%s\t%.2f\t%d\t%d\t%d/%d/%d\t\t%d/%d/%d\n",book.id,book.name,book.author,book.price,
                book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
                book.duedate.dd,book.duedate.mm,book.duedate.yy);
     }
-
+    printf("========================================================================================\n");
 }
 
 void build_menu(){
@@ -179,7 +181,7 @@ void flushDatabase(){
     int i;
     for(i=0;i<datasize;i++){
         struct Book book = *(data_dynamic + i);
-        fprintf(data,"%d,%s,%s,%f,%d,%d,%d %d %d,%d %d %d\n",book.id,book.name,book.author,book.price,
+        fprintf(data,"%d,%s,%s,%.2f,%d,%d,%d %d %d,%d %d %d\n",book.id,book.name,book.author,book.price,
                book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
                book.duedate.dd,book.duedate.mm,book.duedate.yy);
     }

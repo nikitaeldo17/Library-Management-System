@@ -15,7 +15,7 @@ int main()
     printf("====================================\n");
     printf("Version: %s\n", BUILD_VERSION);
     loaddata();
-    //testDataBase();
+    testDataBase();
     build_menu();
     int close = 0;
     while (!close){
