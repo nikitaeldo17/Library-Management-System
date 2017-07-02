@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1498999250 source:g:\c\c projects\librarymanagement\main.c
+1499000757 source:g:\c\c projects\librarymanagement\main.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
 	"function.h"
 
-1499000026 source:g:\c\c projects\librarymanagement\function.c
+1499001151 source:g:\c\c projects\librarymanagement\function.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -12,5 +13,5 @@
 	<conio.h>
 	<time.h>
 
-1499000026 g:\c\c projects\librarymanagement\function.h
+1499000768 g:\c\c projects\librarymanagement\function.h
 

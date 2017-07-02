@@ -168,3 +168,21 @@ void build_menu(){
     printf("6. EXIT\n");
     printf("Enter Choice: ");
 }
+
+void flushDatabase(){
+    FILE* data = fopen(DATABASE_FILE,"w");
+    if(data == NULL){
+        printf("Failed to save Database\n");
+        return;
+    }
+    fprintf(data,"%d\n",datasize);
+    int i;
+    for(i=0;i<datasize;i++){
+        struct Book book = *(data_dynamic + i);
+        fprintf(data,"%d,%s,%s,%f,%d,%d,%d %d %d,%d %d %d\n",book.id,book.name,book.author,book.price,
+               book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
+               book.duedate.dd,book.duedate.mm,book.duedate.yy);
+    }
+    fclose(data);
+    data=NULL;
+}

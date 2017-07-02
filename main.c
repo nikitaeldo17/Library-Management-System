@@ -25,7 +25,8 @@ int main()
             case '3':break;
             case '4':break;
             case '5':break;
-            case '6': printf("Thank You for using Library Management System");
+            case '6':printf("Thank You for using Library Management System");
+                    flushDatabase();
                     exit(0);
                     break;
             default:printf("Unknown Input\n");
