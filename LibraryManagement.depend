@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1498979396 source:g:\c\c projects\librarymanagement\main.c
+	<stdio.h>
+	<stdlib.h>
+	"function.h"
+
+1498979381 source:g:\c\c projects\librarymanagement\function.c
+	<stdio.h>
+	<string.h>
+
+1498979071 g:\c\c projects\librarymanagement\function.h
+
