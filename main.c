@@ -30,7 +30,7 @@ int main()
                     printf("Version: %s\n\n", BUILD_VERSION);
                     testDataBase();
                     break;
-            case '4':printf("Thank You for using Library Management System");
+            case '4':printf("\nThank You for using Library Management System");
                     flushDatabase();
                     close=1;
                     break;

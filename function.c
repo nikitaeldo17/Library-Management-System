@@ -31,7 +31,7 @@ struct Book{
 
 struct Book* data_dynamic;
 int datasize;
-
+int maxsize;
 struct date make_date(char str[]){
     int dd = 0 ,mm = 0,yy = 0;
     sscanf(str,"%d %d %d",&dd,&mm,&yy);
@@ -135,6 +135,8 @@ void loaddata(){
     }
     printf("%d Bytes of Memory Allocated. \n",(int)((1.0+BUFFERWIDTH_RATIO)*datasize*sizeof(struct Book)));
 
+    maxsize=(int)((1.0+BUFFERWIDTH_RATIO)*datasize);
+
     struct Book* pData_dynamic = data_dynamic;
     while(!feof(data)){
         char* line = fgets(buff,1000,data);
@@ -228,6 +230,10 @@ void add_book(){
     printf("Price : ");
     double price = atof(gets(buff));
     int bookid = ++datasize;
+    if(datasize > maxsize){
+        printf("ERROR BOOK BUFFER OVERFLOW.");
+        exit(1);
+    }
     struct Book* book = (data_dynamic + datasize -1);
     book -> id=bookid;
     strcpy(book -> name,name);
