@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="addl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="addl.h" />
 		<Unit filename="function.c">
 			<Option compilerVar="CC" />
 		</Unit>

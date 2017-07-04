@@ -3,7 +3,7 @@
 #include <time.h>
 #include <conio.h>
 #include "function.h"
-
+#include "addl.h"
 #define BUILD_VERSION "1.0.0"
 #define DATABASE_FILE ".\\Database\\library.csv"
 
@@ -21,16 +21,21 @@ int main()
     int close = 0;
     while (!close){
         switch(getch()){
-            case '1':break;
-            case '2':break;
-            case '3':system("cls");
+            case '1':system("cls");
+                    printf("====================================\n");
+                    printf("WELCOME TO LIBRARY MANAGEMENT SYSTEM\n");
+                    printf("====================================\n");
+                    printf("Version: %s\n\n", BUILD_VERSION);
+                    search_book();
+                    break;
+            case '2':system("cls");
                     printf("====================================\n");
                     printf("WELCOME TO LIBRARY MANAGEMENT SYSTEM\n");
                     printf("====================================\n");
                     printf("Version: %s\n\n", BUILD_VERSION);
                     testDataBase();
                     break;
-            case '4':printf("\nThank You for using Library Management System");
+            case '3':printf("\nThank You for using Library Management System");
                     flushDatabase();
                     close=1;
                     break;

@@ -4,15 +4,11 @@
 #include "function.h"
 #include <conio.h>
 #include <time.h>
+#include "addl.h"
 
 #define BUILD_VERSION "1.0.0"
 #define DATABASE_FILE ".\\Database\\library.csv"
 #define BUFFERWIDTH_RATIO 0.5
-
-void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0) + secs;   // Get finishing time.
-    while (time(0) < retTime);               // Loop until it arrives.
-}
 
 struct date{
     int dd,mm,yy;
@@ -190,10 +186,9 @@ void testDataBase(){
 }
 
 void build_menu(){
-    printf("1. ISSUE BOOK\n");
-    printf("2. SEARCH FOR BOOK\n");
-    printf("3. VIEW DATABASE\n");
-    printf("4. EXIT\n");
+    printf("1. SEARCH FOR BOOK\n");
+    printf("2. VIEW DATABASE\n");
+    printf("3. EXIT\n");
     printf("Enter Choice: ");
 }
 
@@ -252,5 +247,38 @@ void add_book(){
     }
     else{
         printf("Adding book failed.\n");
+    }
+}
+
+void by_name(char* name){
+    int i;
+    for(i=0;i<datasize;i++){
+        printf(i);
+        struct Book book = *(data_dynamic + i);
+        char* a=strstr(name,book.id);
+        printf(name);
+        if(a != NULL)
+            printf("%d\t%-30s\t%-15s\t%.2f\t%d\t%d\t%d/%d/%d\t\t%d/%d/%d\n",book.id,book.name,book.author,book.price,
+               book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
+               book.duedate.dd,book.duedate.mm,book.duedate.yy);
+    }
+}
+
+void search_book(){
+    printf("Search By ?\n1. Name\n2. Author\n3. Rack\nEnter Choice:");
+    int close=0;
+    while(!close){
+        switch(getch()){
+            case '1':printf("Enter Name or Part of Name:");
+                    char name[6];
+                    gets(name);
+                    printf(name);
+                    by_name(name);
+                    break;
+            case '2':break;
+            case '3':break;
+            default:printf("\nUnknown Input. Try Again.\nEnter Choice:");
+                    break;
+        }
     }
 }

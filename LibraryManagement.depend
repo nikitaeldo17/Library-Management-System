@@ -1,18 +1,26 @@
 # depslib dependency file v1.0
-1499144164 source:g:\c\c projects\librarymanagement\main.c
+1499147555 source:g:\c\c projects\librarymanagement\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<conio.h>
 	"function.h"
+	"addl.h"
 
-1499143804 source:g:\c\c projects\librarymanagement\function.c
+1499148081 source:g:\c\c projects\librarymanagement\function.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"function.h"
 	<conio.h>
 	<time.h>
+	"addl.h"
 
-1499110466 g:\c\c projects\librarymanagement\function.h
+1499144710 g:\c\c projects\librarymanagement\function.h
+
+1499147555 source:g:\c\c projects\librarymanagement\addl.c
+	<stdio.h>
+	<stdlib.h>
+
+1499147555 g:\c\c projects\librarymanagement\addl.h
 
