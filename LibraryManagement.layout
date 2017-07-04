@@ -4,17 +4,28 @@
 	<ActiveTarget name="Debug" />
 	<File name="function.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4621" topLine="143" />
+			<Cursor1 position="4713" topLine="68" />
 		</Cursor>
+		<Folding>
+			<Collapse line="11" />
+			<Collapse line="16" />
+			<Collapse line="20" />
+			<Collapse line="34" />
+			<Collapse line="45" />
+			<Collapse line="54" />
+			<Collapse line="107" />
+			<Collapse line="189" />
+			<Collapse line="197" />
+		</Folding>
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="418" topLine="16" />
+			<Cursor1 position="1233" topLine="19" />
 		</Cursor>
 	</File>
 	<File name="function.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="110" topLine="0" />
+			<Cursor1 position="128" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

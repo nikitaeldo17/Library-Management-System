@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <time.h>
 
+#define BUILD_VERSION "1.0.0"
 #define DATABASE_FILE ".\\Database\\library.csv"
 #define BUFFERWIDTH_RATIO 0.5
 
@@ -150,24 +151,47 @@ void loaddata(){
 
 void testDataBase(){
     int i;
-    printf("+++++++++++++++++++++++++++++++++++++++++BOOK LIST+++++++++++++++++++++++++++++++++++++++\n");
-    printf("BOOK ID\tNAME\t\t\tAUTHOR\tPRICE\tRACK NO\tCOUNT\tISSUED ON\tDUE DATE\n");
+    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++BOOK LIST++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+    printf("BOOK ID\t%-30s\t%-15s\tPRICE\tRACK NO\tCOUNT\tISSUED ON\tDUE DATE\n","NAME","AUTHOR");
     for(i=0;i<datasize;i++){
         struct Book book = *(data_dynamic + i);
-        printf("%d\t%s\t%s\t%.2f\t%d\t%d\t%d/%d/%d\t\t%d/%d/%d\n",book.id,book.name,book.author,book.price,
+        printf("%d\t%-30s\t%-15s\t%.2f\t%d\t%d\t%d/%d/%d\t\t%d/%d/%d\n",book.id,book.name,book.author,book.price,
                book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
                book.duedate.dd,book.duedate.mm,book.duedate.yy);
     }
-    printf("========================================================================================\n");
+    printf("===============================================================================================================\n");
+    printf("Press A to add new Book, R to Return.\n");
+    int close = 0;
+    while(!close){
+        switch(getch()){
+            case 'A':
+            case 'a':
+                    add_book();
+                    struct Book book = *(data_dynamic + datasize -1);
+                    printf("datasize= %d :: %d\t%s\t%s\t%.2f\t%d\t%d\t%d/%d/%d\t\t%d/%d/%d\n",datasize,book.id,book.name,book.author,book.price,
+                    book.rack,book.count,book.issued.dd,book.issued.mm,book.issued.yy,
+                    book.duedate.dd,book.duedate.mm,book.duedate.yy);
+                    printf("Press A to add new Book, R to Return.\n");
+                    break;
+            case 'R':
+            case 'r':
+                    system("cls");
+                    printf("====================================\n");
+                    printf("WELCOME TO LIBRARY MANAGEMENT SYSTEM\n");
+                    printf("====================================\n");
+                    printf("Version: %s\n\n", BUILD_VERSION);
+                    build_menu();
+                    close=1;
+                    break;
+        }
+    }
 }
 
 void build_menu(){
-    printf("1. ADD BOOK\n");
-    printf("2. DELETE BOOK\n");
-    printf("3. EDIT BOOK\n");
-    printf("4. ISSUE BOOK\n");
-    printf("5. SEARCH FOR BOOK\n");
-    printf("6. EXIT\n");
+    printf("1. ISSUE BOOK\n");
+    printf("2. SEARCH FOR BOOK\n");
+    printf("3. VIEW DATABASE\n");
+    printf("4. EXIT\n");
     printf("Enter Choice: ");
 }
 
@@ -187,4 +211,40 @@ void flushDatabase(){
     }
     fclose(data);
     data=NULL;
+}
+
+void add_book(){
+    printf("Name of Book : ");
+    char name[100];
+    gets(name);
+    printf("Name of Author : ");
+    char author[100];
+    gets(author);
+    char buff[100];
+    printf("Count : ");
+    int count = atoi(gets(buff));
+    printf("Rack No : ");
+    int rack = atoi(gets(buff));
+    printf("Price : ");
+    double price = atof(gets(buff));
+    int bookid = ++datasize;
+    struct Book* book = (data_dynamic + datasize -1);
+    book -> id=bookid;
+    strcpy(book -> name,name);
+    strcpy(book -> author,author);
+    book -> price = price;
+    book -> rack = rack;
+    book -> count =count;
+    book -> issued.dd = 0;
+    book -> issued.mm = 0;
+    book -> issued.yy = 0;
+    book -> duedate.dd = 0;
+    book -> duedate.mm = 0;
+    book -> duedate.yy = 0;
+    if((*book).id == datasize){
+        printf("Book addition successful.\n");
+    }
+    else{
+        printf("Adding book failed.\n");
+    }
 }

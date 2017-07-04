@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
 #include "function.h"
 
 #define BUILD_VERSION "1.0.0"
@@ -15,19 +16,23 @@ int main()
     printf("====================================\n");
     printf("Version: %s\n", BUILD_VERSION);
     loaddata();
-    testDataBase();
+    //testDataBase();
     build_menu();
     int close = 0;
     while (!close){
-        switch(getchar()){
+        switch(getch()){
             case '1':break;
             case '2':break;
-            case '3':break;
-            case '4':break;
-            case '5':break;
-            case '6':printf("Thank You for using Library Management System");
+            case '3':system("cls");
+                    printf("====================================\n");
+                    printf("WELCOME TO LIBRARY MANAGEMENT SYSTEM\n");
+                    printf("====================================\n");
+                    printf("Version: %s\n\n", BUILD_VERSION);
+                    testDataBase();
+                    break;
+            case '4':printf("Thank You for using Library Management System");
                     flushDatabase();
-                    exit(0);
+                    close=1;
                     break;
             default:printf("Unknown Input\n");
                     waitFor(1);
