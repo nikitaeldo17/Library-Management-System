@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1499147555 source:g:\c\c projects\librarymanagement\main.c
+1499878063 source:g:\c\c projects\librarymanagement\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -16,11 +16,20 @@
 	<time.h>
 	"addl.h"
 
-1499144710 g:\c\c projects\librarymanagement\function.h
+1499878404 g:\c\c projects\librarymanagement\function.h
 
 1499147555 source:g:\c\c projects\librarymanagement\addl.c
 	<stdio.h>
 	<stdlib.h>
 
 1499147555 g:\c\c projects\librarymanagement\addl.h
+
+1499878904 source:g:\c\c projects\librarymanagement\function2.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"function.h"
+	<conio.h>
+	<time.h>
+	"addl.h"
 

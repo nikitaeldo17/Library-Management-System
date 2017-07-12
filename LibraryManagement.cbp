@@ -39,6 +39,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="function.h" />
+		<Unit filename="function2.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
